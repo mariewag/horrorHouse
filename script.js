@@ -6,7 +6,6 @@ const scenes = [
     
 {   // Start 0
     text: "Do you want to start looking in the kitchen or the living room?",
-    image: "./images/start.jpg",
     choices: ["Kitchen", "Living room"],
     nextScene: [1, 2],
 },
@@ -95,13 +94,6 @@ function presentScene() {
     const scene = scenes[currentScene];
     updateDescription(scene);
     createChoices(scene);
-    updateBackgroundImage(scene);
-}
-
-/** Get different background-images in each scene */
-function updateBackgroundImage(scene) {
-    const container = document.body;
-    container.style.backgroundImage = `url("${scene.image}")`;
 }
 
 /** Get new description in each scene */
