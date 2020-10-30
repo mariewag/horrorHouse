@@ -1,27 +1,29 @@
-// Define the state of the application
+/** Define the state of the application */
 let currentScene = 0;
 
+/** Setup the different scenes */
 const scenes = [
     
 {   // Start 0
     text: "Do you want to start looking in the kitchen or the living room?",
+    image: "./images/start.jpg",
     choices: ["Kitchen", "Living room"],
     nextScene: [1, 2],
 },
    
-{   //  1
+{   // 1
     text: "A man is standing right in front of you! Do you punch him or scream?",
     choices: ["Punch him", "Scream"],
     nextScene: [10, 3],
 },
 
-{   //  2
+{   // 2
     text: "There is a zombie in the room! Do you want to hide or run to the kitchen?",
     choices: ["Hide", "Run"],
     nextScene: [7, 3],
 },
 
-{   //  3
+{   // 3
     text: "You made it to the kitchen. Do you want to look for the key in the cupboards or the drawers?",
     choices: ["Cupboards", "Drawers"],
     nextScene: [4, 5],
@@ -63,7 +65,6 @@ const scenes = [
     nextScene: [0],
 },
 
-
 {   // 10
     text: "Oh no, you're too weak!",
     choices: ["Try again"],
@@ -78,28 +79,38 @@ const scenes = [
 ];
 
 
-// Run our application
+/** Run application */
 function begin() {
-    // Show/hide html element
+    // Show/hide html element in start page
     document.getElementById("game-container").style.display = "block";
     document.getElementById("start-container").style.display = "none";
 
+    // Run scenes
     presentScene()
 }
-//element.style.display = "none"
 
-// Define the actions for the application
+
+/** Setup elements for scenes */
 function presentScene() {
     const scene = scenes[currentScene];
     updateDescription(scene);
     createChoices(scene);
+    updateBackgroundImage(scene);
 }
 
+/** Get different background-images in each scene */
+function updateBackgroundImage(scene) {
+    const container = document.body;
+    container.style.backgroundImage = `url("${scene.image}")`;
+}
+
+/** Get new description in each scene */
 function updateDescription(scene) {
     const textTag = document.getElementById("text");
     textTag.innerText = scene.text;
 }
 
+/** Get new choices in each scene */
 function createChoices(scene) {
     const container = document.getElementById("choices-container");
     container.innerText = "";
@@ -113,10 +124,12 @@ for (let i = 0; i < scene.choices.length; i++) {
     }
 }
 
+/** Create buttons */
 function createButton(choice, nextScene) {
     const button = document.createElement("button");
     button.classList.add("button");
 
+    // Updates the text in the buttons in each scene
     button.innerText = choice;
     button.onclick = function() {
         handleUserChoice(nextScene);
@@ -125,82 +138,8 @@ function createButton(choice, nextScene) {
     return button;
 }
 
-
+/** Update content to user choices in each scene */
 function handleUserChoice(nextScene) {
     currentScene = nextScene;
     presentScene();
 }
-
-
-
-
-
-
-
-
-
-
-// Define the actions for our applications
-/*
-function presentScene() {
-    const answer = prompt(scenes[currentScene].description);
-    handleUserChoice(answer)
-
-}
-
-function handleUserChoice(answer) {
-    console.log(answer)
-
-    if (answer === scenes[currentScene].choices[0]) {
-        currentScene = scenes[currentScene].nextScene[0]
-    }
-
-    if (answer === scenes[currentScene].choices[1]) {
-        currentScene = scenes[currentScene].nextScene[1]
-    }
-
-    if (answer === scenes[currentScene].choices[2]) {
-        currentScene = scenes[currentScene].nextScene[2]
-    }
-
-    if (answer === scenes[currentScene].choices[3]) {
-        currentScene = scenes[currentScene].nextScene[3]
-    }
-
-    if (answer === scenes[currentScene].choices[4]) {
-        currentScene = scenes[currentScene].nextScene[4]
-    }
-
-    if (answer === scenes[currentScene].choices[5]) {
-        currentScene = scenes[currentScene].nextScene[5]
-    }
-
-    if (answer === scenes[currentScene].choices[6]) {
-        currentScene = scenes[currentScene].nextScene[6]
-    }
-
-    if (answer === scenes[currentScene].choices[7]) {
-        currentScene = scenes[currentScene].nextScene[7]
-    }
-
-    if (answer === scenes[currentScene].choices[8]) {
-        currentScene = scenes[currentScene].nextScene[8]
-    }
-
-    if (answer === scenes[currentScene].choices[9]) {
-        currentScene = scenes[currentScene].nextScene[9]
-    }
-
-    if (answer === scenes[currentScene].choices[10]) {
-        currentScene = scenes[currentScene].nextScene[10]
-    }
-
-    if (answer === scenes[currentScene].choices[11]) {
-        currentScene = scenes[currentScene].nextScene[11]
-    }
-
-
-    presentScene()
-
-}
-*/
