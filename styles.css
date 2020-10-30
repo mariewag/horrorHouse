@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    background-color: black;
+    color: white;
+
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1;
+    align-content: center;
+    gap: 1rem;
+}
+
+.button {
+    height: 3rem;
+    font-size: 1.3rem;
+}
+
+.game-container {
+    max-width: 30rem;
+    display: none; 
+}
+
+.start-button {
+    height: 3rem;
+    font-size: 1.3rem;
+}
+
