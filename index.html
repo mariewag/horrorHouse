@@ -8,12 +8,15 @@
     <script defer src="./script.js"></script>
 </head>
 <body>
-    <h1>Welcome to Horror House!</h1>
-    <p>You are stuck in the house and need to find the hidden key to get out.<br>Good luck!</p>
-    <div>
+    <div id="start-container">
+        <h1>Welcome to Horror House!</h1>
+        <p>You are trapped in the house and need to find the hidden key to get out.<br>Good luck!</p>
+        <button onclick="begin()" class="start-button">Start game</button>
+    </div>
+    <div id="game-container" class="game-container">
         <h4 id="text"></h4>
         <!--Buttons appear in Javascript-->
-        <div id="choices-container"></div>    
+        <div id="choices-container" class="button-grid"></div>    
     </div> 
 </body>
 </html>
