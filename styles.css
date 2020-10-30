@@ -7,9 +7,8 @@ body {
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
-    background-color: black;
     color: white;
-
+    background-color: black;
 }
 
 .button-grid {
@@ -23,6 +22,8 @@ body {
 .button {
     height: 3rem;
     font-size: 1.3rem;
+    background-color: rgb(148, 216, 142);
+    border: none;
 }
 
 .game-container {
@@ -30,8 +31,21 @@ body {
     display: none; 
 }
 
+.start-container {
+    background-image: url("./house.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
 .start-button {
     height: 3rem;
     font-size: 1.3rem;
+    background-color:rgb(148, 216, 142);
+    border: none;
 }
-
