@@ -46,41 +46,47 @@ const scenes = [
 },
 
 {   // 7
-    text: "Oh no, he found you! Do you want to try again?",
-    choices: ["Yes", "No"],
-    nextScene: [0, 0],
+    text: "Oh no, he found you!",
+    choices: ["Try again"],
+    nextScene: [0],
 },
 
 {   // 8
-    text: "You won’t surive without the key! Are you sure you don't want to take it with you?",
-    choices: ["Yes", "No"],
-    nextScene: [9, 6],
+    text: "You won’t surive without the key!",
+    choices: ["Bring the key"],
+    nextScene: [6],
 },
 
 {   // 9
-    text: "Oh no, you died! Do you want to try again?",
-    choices: ["Yes", "No"],
-    nextScene: [0, 0],
+    text: "Oh no, you died!",
+    choices: ["Try again"],
+    nextScene: [0],
 },
 
 
 {   // 10
-    text: "Oh no, you're too weak! Do you want to try again?",
-    choices: ["Yes", "No"],
-    nextScene: [0, 0],
+    text: "Oh no, you're too weak!",
+    choices: ["Try again"],
+    nextScene: [0],
 },
 
 {   // 11
-    text: "You made it! Well done! Go to start?",
-    choices: ["Yes", "No"],
-    nextScene: [0, 0],
+    text: "You made it! Well done!",
+    choices: ["Go to start"],
+    nextScene: [0],
 }
 ];
 
 
 // Run our application
-window.onload = presentScene;
+function begin() {
+    // Show/hide html element
+    document.getElementById("game-container").style.display = "block";
+    document.getElementById("start-container").style.display = "none";
 
+    presentScene()
+}
+//element.style.display = "none"
 
 // Define the actions for the application
 function presentScene() {
@@ -109,6 +115,7 @@ for (let i = 0; i < scene.choices.length; i++) {
 
 function createButton(choice, nextScene) {
     const button = document.createElement("button");
+    button.classList.add("button");
 
     button.innerText = choice;
     button.onclick = function() {
@@ -122,9 +129,6 @@ function createButton(choice, nextScene) {
 function handleUserChoice(nextScene) {
     currentScene = nextScene;
     presentScene();
-    
-
-
 }
 
 
